@@ -15,6 +15,7 @@ function minSubArrayLen(array, int) {
   //Create a sum varaible
   let sum = 0;
   let sumCount = 0;
+  let sum2 = 0;
   //Run a loop that calculates to see how long it takes to hit
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
@@ -22,18 +23,16 @@ function minSubArrayLen(array, int) {
     if (int <= sum) {
       sumCount = i;
       i = array.length;
-    }
-    if (sum <= !int && i === array.length) {
-      return 0;
+    } else if (sum < int && i + 1 === array.length) {
+      return (sumCount = 0);
     }
   }
   tempMinLen = sumCount;
   if (0 < sumCount) {
     for (let i = tempMinLen; i < array.length; i++) {
-      sum = 0;
-      sum += array[i];
-      if (int <= sum) {
-        sumCount = Math.min(i, sumCount);
+      sum2 += array[i];
+      if (int <= sum2) {
+        sumCount = Math.min(i, tempMinLen);
         i = array.length;
       }
     }
@@ -48,4 +47,4 @@ function minSubArrayLen(array, int) {
 
 console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7));
 console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));
-//console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95));
+console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95));
