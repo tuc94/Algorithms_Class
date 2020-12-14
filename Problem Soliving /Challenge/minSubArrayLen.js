@@ -27,19 +27,35 @@ function minSubArrayLen(array, int) {
       return (sumCount = 0);
     }
   }
-  tempMinLen = sumCount;
+  tempMinLen = sumCount + 1;
+  // if (0 < sumCount) {
+  //   for (let i = tempMinLen; i < array.length; i++) {
+  //     sum2 += array[i];
+  //     if (int <= sum2) {
+  //       sumCount = Math.min(i, tempMinLen);
+  //       i = array.length;
+  //     }
+  //   }
+
+  //   return sumCount;
+  // }
+
   if (0 < sumCount) {
-    for (let i = tempMinLen; i < array.length; i++) {
-      sum2 += array[i];
-      if (int <= sum2) {
-        sumCount = Math.min(i, tempMinLen);
-        i = array.length;
+    let j = tempMinLen;
+    let i = 0;
+    while (j < array.length) {
+      for (j; j < array.length; j++) {
+        sum2 += array[j];
+        i += 1;
+        if (int <= sum2) {
+          sumCount = Math.min(i, sumCount);
+          sum2 = 0;
+          i = 0;
+        }
       }
     }
-
-    return sumCount;
   }
-
+  return sumCount;
   //Run a loop to compare other starting points and such to
   //Use Math.min to compare and save new len
   //Return at end the len
@@ -47,4 +63,7 @@ function minSubArrayLen(array, int) {
 
 console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7));
 console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));
+console.log(minSubArrayLen([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 19], 52));
+console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 39));
+console.log(minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11));
 console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95));
