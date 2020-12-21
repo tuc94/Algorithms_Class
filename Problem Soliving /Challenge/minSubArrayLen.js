@@ -13,48 +13,30 @@ function minSubArrayLen(array, int) {
   //Create a temp Min Len varaible
   let tempMinLen = 0;
   //Create a sum varaible
-  let sum = 0;
   let sumCount = 0;
+  let tempSumCount = 0;
   let sum2 = 0;
+  let j = 0;
   //Run a loop that calculates to see how long it takes to hit
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-    //if it doesn't it returns a 0
-    if (int <= sum) {
-      sumCount = i;
-      i = array.length;
-    } else if (sum < int && i + 1 === array.length) {
-      return (sumCount = 0);
-    }
-  }
-  tempMinLen = sumCount + 1;
-  // if (0 < sumCount) {
-  //   for (let i = tempMinLen; i < array.length; i++) {
-  //     sum2 += array[i];
-  //     if (int <= sum2) {
-  //       sumCount = Math.min(i, tempMinLen);
-  //       i = array.length;
-  //     }
-  //   }
-
-  //   return sumCount;
-  // }
-
-  if (0 < sumCount) {
-    let j = tempMinLen;
-    let i = 0;
-    while (j < array.length) {
-      for (j; j < array.length; j++) {
-        sum2 += array[j];
-        i += 1;
-        if (int <= sum2) {
-          sumCount = Math.min(i, sumCount);
-          sum2 = 0;
-          i = 0;
-        }
+  while (j < array.length) {
+    let k = 0;
+    let sum = 0;
+    for (let i = j; i < array.length; i++) {
+      sum += array[i];
+      k += 1;
+      //if it doesn't it returns a 0
+      if (int <= sum && sumCount === 0) {
+        sumCount = i;
+        i = array.length;
+      }
+      if (int <= sum && sumCount !== 0) {
+        sumCount = Math.min(k, sumCount);
+        i = array.length;
       }
     }
+    j += 1;
   }
+
   return sumCount;
   //Run a loop to compare other starting points and such to
   //Use Math.min to compare and save new len
