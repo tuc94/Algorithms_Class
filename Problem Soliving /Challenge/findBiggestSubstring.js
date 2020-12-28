@@ -20,9 +20,9 @@ function findBiggestSubString(string) {
     for (let i = count; i < string.length; i++) {
       //check if string charaecter is in obj and add it if so
       let char = string[i];
-      if (count + 1 === string.length && obj[char] === undefined) {
+      if (i + 1 === string.length && obj[char] === undefined) {
         substringLength = Math.max(
-          string.slice(count, i).length,
+          string.slice(count, i + 1).length,
           substringLength
         );
         console.log(substringLength);
@@ -45,9 +45,9 @@ function findBiggestSubString(string) {
   return substringLength;
 }
 
-// console.log(findBiggestSubString(""));
-// console.log(findBiggestSubString("rithmschool"));
-// console.log(findBiggestSubString("thisisawesome"));
-// console.log(findBiggestSubString("thecatinthehat"));
-// console.log(findBiggestSubString("longestsubstring"));
+console.log(findBiggestSubString(""));
+console.log(findBiggestSubString("rithmschool"));
+console.log(findBiggestSubString("thisisawesome"));
+console.log(findBiggestSubString("thecatinthehat"));
+console.log(findBiggestSubString("longestsubstring"));
 console.log(findBiggestSubString("thisishowwedoit"));
