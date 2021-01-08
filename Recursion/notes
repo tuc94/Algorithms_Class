@@ -1,0 +1,18 @@
+JSON.parse is recursive
+
+Its litterally calling itself inside a function
+function cat(){
+    function cat(){
+
+    }
+}
+
+
+The Stack 
+-Any function invoced will put on the top of the call stack 
+-When javascript see reuturn the complier will remove
+-Pretty much when a function is invoved its added to a queue and removed when a return statement happens
+
+Important things for a recursive function
+1. Base Case or when it should stop 
+2. Diffrent Input or the diffrent stuff we add 
