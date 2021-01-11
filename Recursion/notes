@@ -16,3 +16,8 @@ The Stack
 Important things for a recursive function
 1. Base Case or when it should stop 
 2. Diffrent Input or the diffrent stuff we add 
+
+
+Pitfalls with Recursion 
+1. If you don't have base case set up correctly it will error out 
+2. Make sure you add return something or it will not work 
