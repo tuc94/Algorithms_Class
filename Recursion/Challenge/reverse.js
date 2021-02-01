@@ -3,8 +3,8 @@ function reverse(string) {
   if (length === 1) {
     return string;
   }
-  return reverse(string.slice(-1));
+  return reverse(string.slice(1)) + string[0];
 }
 
 console.log(reverse("awesome")); // 'emosewa'
-reverse("rithmschool"); // 'loohcsmhtir'
+console.log(reverse("rithmschool")); // 'loohcsmhtir'
