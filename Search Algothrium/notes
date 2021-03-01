@@ -1,0 +1,5 @@
+linear search = checking something in array one element at a time
+
+binary search = elminates half of elements at a time but the array MUST BE SORTED
+-cuts the part out that its greater then
+-divides and conquers pretty much
