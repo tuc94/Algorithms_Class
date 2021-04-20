@@ -6,7 +6,7 @@ function naiveSearch(array, string) {
     if (array[i] === first) {
       for (let j = 0; j < len; j++) {
         if (array[i + j] !== string[j]) {
-          j = len;
+          break;
         }
         if (j === len - 1) {
           count += 1;
@@ -17,4 +17,4 @@ function naiveSearch(array, string) {
   return count;
 }
 
-console.log(naiveSearch("lorie  loled", "e"));
+console.log(naiveSearch("lorie  loled", "lol"));

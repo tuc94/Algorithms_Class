@@ -1,0 +1,10 @@
+Elementry Sorting Algothrium 
+-rearranging items in a collection in some order
+-exp. Sorting numbers from smallest to largest
+-its worth learning because its such a common task
+
+Javascript sort methods 
+-it doesn't allows work corectly
+
+BubleShort 
+-each element looks at each other and swaps if one is larger then the other 
