@@ -55,23 +55,32 @@ class SinglyLinkedList {
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
     }
+    newNode.next = this.head;
+    this.head = newNode;
     this.length++;
     return this;
   }
-  get(num) {
-    if (this.length < num || num < 0) {
-      return null;
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var counter = 0;
+    var current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
     }
-    this.next = this.head;
-    for (let i = 0; i < num; i++) {
-        console.log(this.next)
-      this.next = this.next.next;
+    return current;
+  }
+  set(index, newValue) {
+    if (index < 0 || index >= this.length) return null;
+    var counter = 0;
+    var current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
     }
-    return this.next;
+    current.val = newValue;
+    return current;
   }
 }
 
@@ -79,4 +88,4 @@ var first = new SinglyLinkedList();
 first.push("Pincles");
 first.push("Basil");
 first.push("Basil2");
-console.log(first.get(0));
+console.log(first.set(2,5));
