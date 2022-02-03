@@ -109,6 +109,15 @@ class SinglyLinkedList {
     this.tail.next = null;
     this.head = oldTail;
     this.head.next = oldHeadNext;
+    var next;
+    var prev;
+    var node = new Node(this.head.val)
+    console.log(node)
+    // while (current.next) {
+    //   current = current.next;
+    //   console.log(current)
+    //   counter++;
+    // }
     return this
   }
 }
@@ -118,4 +127,4 @@ first.push("Pincles");
 first.push("Basil");
 first.push("Basil2");
 first.reverse()
-first
+//console.log(first)
